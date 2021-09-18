@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import StoreCard from "../components/StoreCard";
 
 function Stores() {
-    const [stores, setStores] = useState(0);
+    const [stores, setStores] = useState([]);
 
     useEffect(() => {
-        fetch("http://carttech.tech/api/stores").then(response => response.json()).then(data => {
-            setStores(data.response.stores);
-        });
+        fetch("http://carttech.tech/api/stores").then(response => response.json()).then(data => setStores(data.response.stores));
     });
 
     return (
@@ -16,7 +14,6 @@ function Stores() {
                 <h1 className="display-1">Stores</h1>
             </div>
             <div className="row">
-                {console.log(stores)}
                 {stores.map(function(store, i) {
                     return (
                         <div className="col">
