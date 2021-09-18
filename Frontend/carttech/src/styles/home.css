@@ -1,0 +1,31 @@
+.cursor {
+  overflow: hidden;
+  border-right: 0.15em solid black;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 10000ms;
+  animation: typing 3 steps(60, end), blink 1s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
