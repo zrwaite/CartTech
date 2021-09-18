@@ -8,7 +8,7 @@ function About() {
     return (
         <div id="about">
             <div id="backgroundimg"></div>
-            <p className="text-center cursor fw-bolder">Grocery Shopping is a repetive, menial task, which means it is ripe for automation. Also, as we learned in the past 2 years, having these warehouse-like stores as a congregation point comes with many drawbacks. CartTech is here to make the process easier than ever.</p>
+            <p className="text-center cursor fw-bolder text-white lead">Grocery Shopping is a repetive, menial task, which means it is ripe for automation. Also, as we learned in the past 2 years, having these warehouse-like stores as a congregation point comes with many drawbacks. CartTech is here to make the process easier than ever.</p>
         </div>
     );
 }
