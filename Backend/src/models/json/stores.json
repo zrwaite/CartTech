@@ -1,0 +1,19 @@
+{
+    "stores": [
+        {
+            "id": 1,
+            "name": "Metro",
+            "info": "We are metro, a grocery store",
+            "total_carts": 3,
+            "available_carts": 0
+        },
+        {
+            "id": 2,
+            "name": "Michael's Shop",
+            "info": "Welcome to michael's shop!",
+            "total_carts": 4,
+            "available_carts": 1
+        }
+    ]
+
+}
