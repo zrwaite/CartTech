@@ -75,10 +75,38 @@ public:
     setLeftForwards();
     setRightForwards();
   }
+
+  void motorsMove(){
+    drive();
+  }
+
+  void motorsSpeed(int power){
+    _lm.power = power;
+    _rm.power = power;
+    drive();
+  }
+
+  void checkBlink(){
+    if(_blink){
+      _blink = false;
+      digitalWrite(13, HIGH);
+    } else {
+      _blink = true;
+      digitalWrite(13, LOW);
+    }
+  }
+  
 private:
   MotorData _lm;
   MotorData _rm;
-   
+
+  bool _blink = false;
+
+  void drive(){
+    analogWrite(_lm.PWMpin, _lm.power);
+    analogWrite(_rm.PWMpin, _rm.power);
+  }
+  
   void setLeftForwards() {
     digitalWrite(_lm.Bpin, LOW);
     digitalWrite(_lm.Fpin, HIGH);
@@ -94,7 +122,7 @@ void TaskRunMotors(void *pvParameters) {
 
   for (;;) // The REAL loop (kinda)
   {
-    //mc.justMove();
+    mc.motorsMove();
     vTaskDelay(2);
   }
 }
@@ -115,6 +143,14 @@ void TaskReadSerial(void *pvParameters) {
         break;
         case 'n':
         digitalWrite(13, HIGH);
+        break;
+        case 'g':
+        mc.motorsSpeed(160);
+        mc.checkBlink();
+        break;
+        case 's':
+        mc.motorsSpeed(0);
+        mc.checkBlink();
         break;
       }
     }    

@@ -24,7 +24,7 @@ ser1 = serial.Serial(
 #Just echo from Jetson to Arduino
 while True:
     if(ser1.inWaiting() > 0):
-        c = ser1.read()
-        ser.write(c)
-        print(c)
-    time.sleep(1)
+        c = ser1.read(ser1.inWaiting())
+        ser.write(c[-1])
+        print(c[-1])
+    time.sleep(0.5)
