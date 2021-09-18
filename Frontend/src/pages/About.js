@@ -1,5 +1,4 @@
 import React from "react";
-import team from "../carttech-teamphoto.png";
 import '../styles/home.css'
 
 //making the home component
