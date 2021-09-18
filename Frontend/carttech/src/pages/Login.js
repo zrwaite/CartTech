@@ -4,7 +4,7 @@ import React from "react"
 function Login() {
     //return the page
     return (
-        <div>
+        <div id="login">
             <h1 className="display-1">CartTech</h1>
             <p className="lead">This is the login page.</p>
         </div>
