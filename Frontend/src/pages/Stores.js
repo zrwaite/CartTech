@@ -16,6 +16,7 @@ function Stores() {
                 <h1 className="display-1">Stores</h1>
             </div>
             <div className="row">
+                {console.log(stores)}
                 {stores.map(function(store, i) {
                     return (
                         <div className="col">
