@@ -18,7 +18,7 @@
 * Zac Waite: Project Manager and Back-end Developer
 * Arnav Gupta: Designer and Front-End Developer
 * Harshul Gupta: Designer and Front-End Developer
-<img width="1000" alt="Team Photo" src="">
+<img width="800" alt="Team Photo" src="https://user-images.githubusercontent.com/68486874/133870564-7903ad5c-38dc-4533-95e1-a2c6e8e67df7.png">
 
 ---
 
