@@ -6,13 +6,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation-delay: 10000ms;
   animation: typing 3 steps(60, end), blink 1s step-end infinite;
   word-wrap: normal;
 }
 
+.proj-name {
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .image {
-  height: 87.5vh;
+  height: 100vh;
 }
 
 @keyframes typing {
@@ -20,7 +27,7 @@
     width: 0;
   }
   to {
-    width: 60%;
+    width: 57.5%;
   }
 }
 
@@ -32,4 +39,16 @@
   50% {
     border-color: white;
   }
+}
+
+#backgroundimg {
+  background-image: url("../carttech-teamphoto.png");
+  width: 100%;
+  height: 100vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  opacity: 50%;
+  background-size: cover;
+  background-position: center;
 }
