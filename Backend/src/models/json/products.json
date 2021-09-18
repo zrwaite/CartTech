@@ -3,36 +3,42 @@
     "products": [
         {
             "id": 1,
+            "store_id": 2,
             "name": "Apples",
             "price": 2.50,
             "image_link": "apple.png"
         },
         {
             "id": 2,
+            "store_id": 2,
             "name": "Bananas",
             "price": 1.50,
             "image_link": "banana.jpg"
         },
         {
             "id": 3,
+            "store_id": 2,
             "name": "Oranges",
             "price": 1.25,
             "image_link": "orange.jpg"
         },
         {
             "id": 4,
+            "store_id": 2,
             "name": "Peaches",
             "price": 2.10,
             "image_link": "peach.jpg"
         },
         {
             "id": 5,
+            "store_id": 2,
             "name": "Watermelons",
             "price": 4.50,
             "image_link": "watermelon.jpg"
         },
         {
             "id": 6,
+            "store_id": 2,
             "name": "Strawberries",
             "price": 3.50,
             "image_link": "strawberry.jpg"
