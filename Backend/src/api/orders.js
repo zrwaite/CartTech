@@ -1,9 +1,6 @@
-//const Stores = require('../models/stores');
-//const User = require('../models/user');
-const bcrypt = require('bcrypt');
+const Orders = require('../models/orders');
 const response = require('../models/response'); //Created pre-formatted uniform response
-const fs = require('fs')
-const path = require('path');
+
 
 /* register controller */
 module.exports = class ordersController {
@@ -11,12 +8,32 @@ module.exports = class ordersController {
         let result = new response();
         // search if the project already exsisted (call findOne function)
         let orders;
-        if (true) {
-            var jsonPath = path.join(__dirname, '..', 'models', 'json', 'orders.json');
-            orders = JSON.parse(fs.readFileSync(jsonPath));
-            result.status = 200;
-            result.success = true;
-            result.response = orders;
+        if (req.query.id === undefined) {
+            try{
+                orders = await Orders.find({});
+                result.connected = true;
+            } catch (e) {
+                result.status = 400;
+                result.errors.push("Orders not found", e);
+            }
+        } else {
+            try{
+                orders = await Orders.findById(req.query.id);
+                result.connected = true;
+            } catch (e) {
+                result.status = 400;
+                result.errors.push("ID Error", e);
+            }
+        }
+        if (result.connected){
+            if (orders == null) {
+                result.status = 404;
+                result.errors.push('Orders not found');
+            } else{
+                result.status = 200;
+                result.success = true;
+                result.response = {"orders": orders};
+            }
         }
         res.status(result.status).json(result); //Return whatever result remains
     }

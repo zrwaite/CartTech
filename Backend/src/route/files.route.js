@@ -8,7 +8,8 @@ const folderPath = path.join(__dirname, '..', '..', 'files')
 router.route('*')
     .get(
         (req, res) => {
-            if (fs.existsSync(folderPath + req.url)){
+            console.log(req.url);
+            if (req.url !== "/" && fs.existsSync(folderPath + req.url)){
                 res.status(200).sendFile(req.url, {root: folderPath})
             } else {
                 res.status(404).json("404 File not found");
