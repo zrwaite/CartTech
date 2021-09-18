@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
+import '../styles/home.css';
 
 //making the home component
 function Home() {
     //return the page
     return (
         <div id="home">
-            <h1 className="display-1">CartTech</h1>
-            <p className="lead">This is the home page.</p>
+            <h2 className="display-1 cursor">CartTech: Where you don't move the cart, the cart moves you!</h2>
         </div>
     );
 }
