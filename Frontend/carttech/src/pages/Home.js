@@ -4,7 +4,7 @@ import React from "react"
 function Home() {
     //return the page
     return (
-        <div>
+        <div id="home">
             <h1 className="display-1">CartTech</h1>
             <p className="lead">This is the home page.</p>
         </div>
