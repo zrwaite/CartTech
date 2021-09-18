@@ -11,14 +11,17 @@ function Stores() {
     return (
         <div id="stores" className="container">
             <div className="row text-center">
-                <h1 className="display-1">Stores</h1>
+                <h1 className="display-1 mt-4">Stores</h1>
+            </div>
+            <div className="row text-center my-3">
+                <p className="h3">Here are all the stores you can shop at!</p>
             </div>
             <div className="row">
                 {stores.map(function(store, i) {
                     return (
-                        <div className="col">
+                        <div className="col" key={i}>
                             <StoreCard
-                                key={i}
+                                storeId={store.id}
                                 storeName={store.name}
                                 storeInfo={store.info}
                                 storeAvailable={store.available_carts}

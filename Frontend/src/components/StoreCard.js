@@ -1,12 +1,20 @@
 import React from "react";
+import { useLocation } from "wouter";
 
 //component for storefront card
 
 function StoreCard(props) {
+    const [location, setLocation] = useLocation();
+
+    function setStore() {
+        localStorage.setItem("storeId", props.storeId);
+        setLocation("/products");
+    }
+
     return (
         <div id="storeCard" className="card m-2 text-center">
-            <h4 className="display-4 my-4">{props.storeName}</h4>
-            <p className="lead my-2">{props.storeInfo}</p>
+            <button onClick={setStore} className="btn btn-primary btn-lg">{props.storeName}</button>
+            <p className="lead mt-4">{props.storeInfo}</p>
             <p className="lead my-2">Carts Available: {props.storeAvailable} / {props.storeTotal}</p>
         </div>
     );
