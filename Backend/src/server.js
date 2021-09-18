@@ -38,7 +38,7 @@ module.exports = app; //Export server for use in index.js
 const config = {
     authRequired: false,
     auth0Logout: true,
-    secret: process.env.AUTH0_SECRET || "dV-eMJbSYESCaySxRdTl8e3uDcoXV1b3Ge1dxy5wRqJ4DHzRux1B6hLS2b_vK7ps",
+    secret: process.env.AUTH0_SECRET,
     baseURL: 'http://localhost:2000',
     clientID: 'C42bgZdesIAl0rkqgFf6vpY3DE4wFC3N',
     issuerBaseURL: 'https://dev-it2no-e1.us.auth0.com'
