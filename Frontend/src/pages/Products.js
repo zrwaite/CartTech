@@ -11,6 +11,8 @@ function Products() {
         {
             fetch("http://carttech.tech/api/products?store_id=" + localStorage.getItem("storeId")).then(response => response.json()).then(data => {
                 setProducts(data.response.products);
+
+                //split products into groups of three for rendering
                 var threes = [];
                 for (var i = 0, j = 0; i < products.length; i ++) {
                     if (i >= 3 && i % 3 === 0)
