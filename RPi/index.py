@@ -37,6 +37,18 @@ def get_order(cart_id):
         for the order, using the json response we
         received above. 
         '''
+        productList = [0,0,0,0]
+        productBools = [False, False, False, False]
+        orders = requests.get("http://carttech.tech/api/orders")
+        ordersJson = orders.json()['response']
+        for order in ordersJson:
+            if order["status"] == "Waiting":
+                for i, product in enumerate(order["products"]):
+                    if i < 4:
+                        if product["quantity"] > 0:
+                            productList[i] = product["quantity"]
+                            productBools[i] = True
+                return productList, productBools
     else:
         print(response.status_code)
 
