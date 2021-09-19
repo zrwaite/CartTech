@@ -27,7 +27,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.OUT, initial=GPIO.LOW)
 
 pickup_list = [True, True, True, True]
-pickup_num = [4, 4, 4, 4]
+pickup_num = [4, 5, 4, 6]
 
 def write_arduino(out):
     print('writing: ' + out)
@@ -111,7 +111,7 @@ def check_led(blinks):
 
 while(ser.inWaiting()):
     c = ser.read()
-blink(4)
+blink(2)
 begin_move()
 ser1.write(str.encode('r'))
 led_t = perf_counter()
