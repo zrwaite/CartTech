@@ -13,11 +13,6 @@ const listedProductSchema = new mongoose.Schema({
 });
 const ordersSchema = new mongoose.Schema({
     // define type, required (the most important)
-    status: {
-        type: String,
-        required: false,
-        default: "Waiting"
-    },
     store_id: {
         type: String,
         required: true,
@@ -37,6 +32,11 @@ const ordersSchema = new mongoose.Schema({
         default: null,
     },
     products: [listedProductSchema],
+    status: {
+        type: String,
+        required: false,
+        default: "Waiting"
+    },
 }, { timestamps: true});
 
 module.exports = mongoose.model('Orders', ordersSchema); //Export data formatting
