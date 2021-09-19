@@ -41,10 +41,11 @@ app.use("/api/orders", ordersRoute);
 app.use("/api/carts", cartsRoute);
 app.use("/api/user", userRoute);
 app.use("/files", filesRoute);
-
+/*
 app.get('/', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
+*/
 app.use("/callback", (req, res) => {
     let result = new response(200, null, {"page": "callback"});
     res.status(result.status).json(result); //Return 200 result
