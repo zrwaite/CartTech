@@ -48,6 +48,7 @@ function Stores() {
                                         storeInfo={store.info}
                                         storeAvailable={store.available_carts}
                                         storeTotal={store.total_carts}
+                                        storeImage={store.image_link}
                                     />
                                 </div>
                             );
