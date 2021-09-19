@@ -74,6 +74,7 @@ We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was buil
 
 - Time frame, obviously
 - Authentication (login/register)
+- Deployment for the frontend
 
 ---
 
@@ -121,6 +122,6 @@ We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was buil
 ## Project contacts
 
 - Zac: 129032699zw@gmail.com
-- Michael:
+- Michael: mdnssv@gmail.com
 - Arnav: arnavgupt03@gmail.com
 - Harshul: harshulgupta05@gmail.com
