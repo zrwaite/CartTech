@@ -6,7 +6,7 @@ const response = require('../models/response'); //Created pre-formatted uniform 
 module.exports = class ordersController {
     static async apiGetOrders(req, res, next) {
         let result = new response();
-        // search if the project already exsisted (call findOne function)
+        result.auth =  (req.oidc.user == undefined)? null:req.oidc.user;
         let orders;
         if (req.query.id === undefined) {
             try{

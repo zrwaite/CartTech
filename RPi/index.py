@@ -2,8 +2,13 @@ import requests
 import json
 import schedule
 import time
+from authRequest import getRequest
 
 cart_id = 1
+
+a = getRequest("http://carttech.tech/api/stores")
+print(a)
+
 
 def check_status():
     global cart_id

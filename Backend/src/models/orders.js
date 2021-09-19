@@ -22,6 +22,10 @@ const ordersSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    username: {
+        type: String,
+        required: true,
+    },
     price: {
         type: Number,
         required: true,
