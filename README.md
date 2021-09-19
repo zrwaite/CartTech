@@ -75,7 +75,8 @@ We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was buil
 - Time frame, obviously
 - Authentication (login/register)
 - Deployment for the frontend
-- Murphy's Law
+- Many Hardware elements failing for obscure reasons
+- Basically Murphy's Law
 
 ---
 
