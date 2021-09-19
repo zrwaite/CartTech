@@ -9,33 +9,44 @@ module.exports = class ordersController {
         let result = new response();
         result.auth =  (req.oidc.user == undefined)? null:req.oidc.user;
         let orders;
-        if (req.query.id === undefined) {
+        var querytest = req.query.status+req.query.store_id+req.query.username+req.query.id
+        if (querytest !== querytest){ //No store_id specified
             try{
                 orders = await Orders.find({});
                 result.connected = true;
+                result.response = orders;
+                result.status = 200;
             } catch (e) {
                 result.status = 400;
                 result.errors.push("Orders not found", e);
             }
         } else {
-            try{
-                orders = await Orders.findById(req.query.id);
-                result.connected = true;
-            } catch (e) {
-                result.status = 400;
-                result.errors.push("ID Error", e);
+            var query = {}
+            if (req.query.store_id !== undefined){query.store_id = req.query.store_id}
+            if (req.query.username !== undefined){query.username = req.query.username}
+            if (req.query.status !== undefined){query.status = req.query.status}
+            if (req.query.id === undefined) { //id undefined
+                try{
+                    orders = await Orders.find(query);
+                    result.connected = true;
+                    result.response = orders;
+                    result.status = 200;
+                } catch (e) {
+                    result.status = 400;
+                    result.errors.push("Query Error", e);
+                }
+            } else {
+                try{
+                    orders = await Orders.findById(req.query.id);
+                    result.connected = true;
+                    result.response = orders;
+                    result.status = 200;
+                } catch (e) {
+                    result.status = 400;
+                    result.errors.push("ID Error", e);
+                }
             }
-        }
-        if (result.connected){
-            if (orders == null) {
-                result.status = 404;
-                result.errors.push('Orders not found');
-            } else{
-                result.status = 200;
-                result.success = true;
-                result.response = {"orders": orders};
-            }
-        }
+        } 
         res.status(result.status).json(result); //Return whatever result remains
     }
     static async apiPostOrders(req, res, next) {
