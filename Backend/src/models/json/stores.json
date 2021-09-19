@@ -5,14 +5,16 @@
             "name": "Metro",
             "info": "We are metro, a grocery store",
             "total_carts": 3,
-            "available_carts": 0
+            "available_carts": 0,
+            "image_link": "metro_logo.png"
         },
         {
             "id": 2,
             "name": "Michael's Shop",
             "info": "Welcome to michael's shop!",
             "total_carts": 4,
-            "available_carts": 1
+            "available_carts": 1,
+            "image_link": "michael_logo.jpg"
         }
     ]
 

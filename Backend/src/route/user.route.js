@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const purchaseCtrl = require('../api/purchase');
+const userCtrl = require('../api/user');
 
 router.route('/')
-    .post(purchaseCtrl.apiPostPurchase)
+    .get(userCtrl.apiGetUser)
 
 module.exports = router;

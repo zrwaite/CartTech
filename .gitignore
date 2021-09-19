@@ -9,6 +9,13 @@ lerna-debug.log*
 #MacOS
 .DS_Store
 
+#Https
+server.cert
+server.key
+
+#Python
+__pycache__
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
