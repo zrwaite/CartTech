@@ -42,13 +42,15 @@ function OrderCard(props) {
                 console.log(product.image_link)
                 return (
                     <div className="row">
-                        <div className="lead">{props.orderProducts[i].quantity} of </div>
+                        <div className="col-4 display-2">{props.orderProducts[i].quantity} of </div>
+                        <div className="col-8">
                         <ProductCard
                             key={i}
                             productImage={product.image_id}
                             productName={product.name}
                             productPrice={product.price}
                         />
+                        </div>
                     </div>
                 );
             })}
