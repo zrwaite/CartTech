@@ -14,7 +14,7 @@ const authConfig = {
     authRequired: false,
     auth0Logout: true,
     secret: process.env.AUTH_SECRET,
-    baseURL: 'http://localhost:2000',
+    baseURL: 'http://carttech.tech',
     clientID: 'uNb9Ff8g5NKQDtINqVU7IBhlm5tH25UI',
     issuerBaseURL: 'https://dev-it2no-e1.us.auth0.com'
 };
