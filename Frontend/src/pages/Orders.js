@@ -33,12 +33,24 @@ function Orders() {
     }, [orders, orderThirds, didLoad]);
 
     function changePage(){
-        localStorage.setItem("storeOrder", "Michael's Shop");
+        localStorage.setItem("storeOrder", "61460e30981149a3c03b1393");
         setLocation("/newOrder");
     }
 
     return (
         <div id="orders" className="container">
+            <div className="row text-center">
+                <h3>New Order</h3>
+                    {stores.map((store, i) => {
+                        var button;
+                        if (i === 1) {
+                            button = (<button onClick={changePage} key={i} className="btn btn-primary">{store.name}</button>)
+                        } else {
+                            button = (<button onClick={changePage} key={i} className="btn btn-primary" disabled>{store.name}</button>)
+                        }
+                        return button;
+                    })}
+            </div>
             <div className="row text-center">
                 <h1 className="display-1 mt-4">Orders</h1>
             </div>
@@ -61,12 +73,6 @@ function Orders() {
                     </div>
                 {/*});
             })}*/}
-            <div className="row text-center">
-                <h3>New Order</h3>
-                    {stores.map((store, i) => {
-                        return (<button onClick={changePage} key={i} className="btn btn-primary">{store.name}</button>);}
-                    )}
-            </div>
         </div>
     );
 }
