@@ -40,8 +40,8 @@ app.use("/api/products", productsRoute);
 app.use("/api/orders", ordersRoute); 
 app.use("/api/carts", cartsRoute);
 app.use("/api/user", userRoute);
-app.use("/files", filesRoute);
-/*
+app.use("/files", filesRoute); 
+/* 
 app.get('/', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
@@ -53,6 +53,7 @@ app.use("/callback", (req, res) => {
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../Frontend/build', 'index.html'));
+    console.log(path.resolve(__dirname, '../../Frontend/build', 'index.html'))
 });
 
 module.exports = app; //Export server for use in index.js
