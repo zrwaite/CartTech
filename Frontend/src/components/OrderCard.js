@@ -35,7 +35,6 @@ function OrderCard(props) {
 
     return (
         <div id="orderCard" className="container card">
-            <h4>Order From: {props.orderStore}</h4>
             <h4>Order Status: {props.orderStatus}</h4>
             <p className="lead">Subtotal: {props.subtotal}</p>
             <p className="lead">Total: {props.total}</p>

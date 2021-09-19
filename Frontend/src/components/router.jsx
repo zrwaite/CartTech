@@ -8,6 +8,7 @@ import Stores from "../pages/Stores";
 import Products from "../pages/Products";
 import Orders from "../pages/Orders";
 import NewOrder from "../pages/NewOrder";
+import OrderDone from "../pages/OrderDone";
 
 //router information for wouter, import components above, add paths below
 
@@ -21,5 +22,6 @@ export default () => (
       <Route path="/products" component={Products} />
       <Route path="/orders" component={Orders} />
       <Route path="/newOrder" component={NewOrder} />
+      <Route path="/orderDone" component={OrderDone} />
     </Switch>
 );
