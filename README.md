@@ -43,13 +43,13 @@ We decided to make CartTech, a grocery shopping cart and web app which allows us
 
 ## Inspiration 💡:
 
-(Inspiration for the project, ideas, etc)
+Seeing how automation is more rapidly on the rise than ever before, we brainstormed ways in which we have yet to see robots deployed in, and eventually we came across the idea of automating shopping carts!
 
 ---
 
 ## What it does 🛒📱☑️:
 
-CartTech allows users to drive a shopping cart and purchase groceries through the web app. Users can register an account, and then browse a list of stores. In this list of stores, users can see how many shopping carts are available in each store, and can then read the product list for each store, and view the prices and images of the items. Users can also see their order history and place new orders and the cart will automatically grab the correct grociers.
+CartTech allows users to drive a shopping cart and purchase groceries through the web app. Users can register an account, and then browse a list of stores. In this list of stores, users can see how many shopping carts are available in each store, and can then read the product list for each store, and view the prices and images of the items. Users can also see their order history and place new orders and the cart will automatically grab the correct grociers with minimum installation effort required for any store.
 
 (Detailed project description of each stage in the user process)
 (Photos of use)
@@ -58,7 +58,7 @@ CartTech allows users to drive a shopping cart and purchase groceries through th
 
 ## How we built it 💻:
 
-We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was built with Node, Express, MongoDB, and auth0. We also used a Raspberry Pi to build the server and an Arduino for the robot.
+We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was built with Node, Express, MongoDB, and auth0. We also used a Raspberry Pi to build the server, Jetson Nano for Lidar data, and an Arduino for real-time control of the robot.
 
 (Detailed description of every stage of the design process)
 (Ideas)
@@ -75,6 +75,7 @@ We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was buil
 - Time frame, obviously
 - Authentication (login/register)
 - Deployment for the frontend
+- Murphy's Law
 
 ---
 
@@ -84,12 +85,14 @@ We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was buil
 - Good team work
 - Implementing an organized json response on the backend
 - Solid design
+- Even though that there were many challenges along the way, we were able to persevere and complete our project
 
 ---
 
 ## What we learned 🧠👍:
 
 - Improved all of our coding skills significantly
+- We learned how manage our time under strict time constraints
 
 ---
 
@@ -101,6 +104,8 @@ We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was buil
 
 - HTML, CSS, JS and React for the web 📱💻
 - Node.js and Express.js for the backend 🖥
+- Python for Hardware interfacing and sensing
+- C/C++ for control of the model robot
 
 ---
 
