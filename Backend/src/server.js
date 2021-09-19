@@ -49,6 +49,7 @@ const purchaseRoute = require("./route/purchase.route");
 const ordersRoute = require("./route/orders.route");
 const cartsRoute = require("./route/carts.route");
 const filesRoute = require("./route/files.route");
+const userRoute = require("./route/user.route");
 
 
 
@@ -59,6 +60,7 @@ app.use("/api/products", productsRoute);
 app.use("/api/purchase", purchaseRoute); 
 app.use("/api/orders", ordersRoute); 
 app.use("/api/carts", cartsRoute);
+app.use("/api/user", userRoute);
 app.use("/files", filesRoute);
 
 app.get('/', (req, res) => {
