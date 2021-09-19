@@ -8,7 +8,6 @@ const folderPath = path.join(__dirname, '..', '..', 'files')
 router.route('*')
     .get(
         (req, res) => {
-            console.log(req.url);
             if (req.url !== "/" && fs.existsSync(folderPath + req.url)){
                 res.status(200).sendFile(req.url, {root: folderPath})
             } else {
