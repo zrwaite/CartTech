@@ -52,25 +52,19 @@ def parse_data(buf):
 	return data_list
 
 def lidar_data(buf):
-	with open('data.txt', 'w') as f:
-		theta_list, r_list = [], []
-		for packet in buf:
-			angle_offset = (packet[1]-160)*6
-			for i in range(6):
-				index_pos = 4 + i*6
-				theta = math.radians(int(angle_offset + i)) + math.pi
-				distance = int(packet[index_pos+3] * 256 + packet[index_pos+2])
-				section = 0.35
-				if distance < 1500 and distance != 0 and (theta < 2*math.pi + section and theta > 2*math.pi - section):
-					r_list.append(distance)
-					theta_list.append(theta)
+    theta_list, r_list = [], []
+    for packet in buf:
+        angle_offset = (packet[1]-160)*6
+        for i in range(6):
+            index_pos = 4 + i*6
+            theta = math.radians(int(angle_offset + i)) + math.pi
+            distance = int(packet[index_pos+3] * 256 + packet[index_pos+2])
+            section = 0.1
+            if distance < 1500 and distance != 0 and (theta < 2*math.pi + section and theta > 2*math.pi - section):
+                r_list.append(distance)
+                theta_list.append(theta)
 
-				#r_list.append(distance)
-				for_string = ''
-				for j in range(6):
-					for_string += str(str(packet[index_pos+j]) + ' ')
-				f.write(str(for_string + '\n'))
-		return theta_list, r_list 
+    return theta_list, r_list 
 
 # Port for Lidar
 ser = serial.Serial(
@@ -91,20 +85,28 @@ ser1 = serial.Serial(
 	bytesize=serial.EIGHTBITS,
 	timeout=None
 )
+
+# Manual set up for testing purposes
+pickup_list = [False, True, False, False, False, False]
+
 # Begin Lidar
 ser.write(str.encode('b'))
 
 # Read data
+read = False
 while True:
     initTime = time.time()
-    while(ser.inWaiting() < 1000):
-        if(initTime - time.time() > 2):
+    while(ser.inWaiting() < 2000):
+        if not read:
+            print(ser.inWaiting())
+        if(time.time() - initTime > 6):
             ser.write(str.encode('e'))
-            print('trying again')
+            print(ser.inWaiting())
             ser.write(str.encode('b'))
             initTime = time.time()
 
-    x = ser.read(min(ser.inWaiting(), 2000))
+    read = True
+    x = ser.read(min(ser.inWaiting(), 3000))
 
     data = read_data(x)
     theta_list, r_list = lidar_data(data)
@@ -112,15 +114,20 @@ while True:
 
     # Calulate avg distance
     avg = 0
+    #print(len(data))
     if r_list:
         for t, r in zip(theta_list, r_list):
             avg += r*math.cos(t)
         avg /= len(r_list)
 
         # Decided when to stop and start
-
-        if avg < 500:
-            ser1.write(str.encode('s'))
-        else:
-            ser1.write(str.encode('g'))
-        print(avg)
+        if(ser1.inWaiting()):
+            c = ser1.read(ser1.inWaiting()).decode()
+            limit = 480
+            if(c == 'l'):
+                limit = 800
+            if avg < limit:
+                ser1.write(str.encode('s' + str(int(avg)) + '\n'))
+            else:
+                ser1.write(str.encode('g\n'))
+        print(avg, len(r_list))
