@@ -99,6 +99,9 @@ We used React, HTML5, CSS3, and Bootstrap for the frontend. The backend was buil
 
 ## What's next for CartTech 🥚🐣🐥:
 
+- Creating and implementing a more to-scale and robust design of the CartTech robot for testing and deployment in the field
+- Collaborating with local stores to get the project off the ground
+
 ---
 
 ## Software ⚛️💻:
