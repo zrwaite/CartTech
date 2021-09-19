@@ -61,7 +61,8 @@ function Orders() {
                 return (*/}
                 <div className="row">
                         {orders.map((order, j) => {
-                            return(<OrderCard
+                            return(
+                            <OrderCard
                                 key={j}
                                 orderStore={order.store_id}
                                 orderStatus={order.status}

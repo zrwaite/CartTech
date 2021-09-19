@@ -19,6 +19,22 @@ function NewOrder() {
         }
     }, [didLoad, products, orderProducts]);
 
+    function findPrice(productList) {
+        var total = 0;
+
+        for (var i = 0; i < products.length; i++) {
+            var productPrice;
+            for (var j = 0; j < products.length; j++) {
+                if (products[j]._id == productList[i].id) {
+                    productPrice = products[j].price;
+                }
+            }
+            total += (productList[i].quantity) * productPrice;
+        }
+
+        return total;
+    }
+
     function sendOrder() {
         var productQuantities = [];
 
@@ -44,7 +60,7 @@ function NewOrder() {
                 body: JSON.stringify({
                     "password":"HTN420",
                     "store_id":"61460e30981149a3c03b1393",
-                    "price": 4.2,
+                    "price": findPrice(productQuantities),
                     "username":"129032699zw@gmail.com",
                     "products": productQuantities
                 })
