@@ -6,6 +6,7 @@ const app = express();
 const env = require("dotenv");  //Allows pulling information from .env with process.env
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
+const path = require('path')
 
 //configs
 env.config();
@@ -23,6 +24,7 @@ const authConfig = {
 app.use(cors()); 
 app.use(express.json()); 
 app.use(auth(authConfig));
+app.use(express.static(path.resolve(__dirname, '../../Frontend/build')));
 
 // routes
 const storesRoute = require("./route/stores.route");
@@ -48,9 +50,8 @@ app.use("/callback", (req, res) => {
     res.status(result.status).json(result); //Return 200 result
 });
 
-app.use("*", (req, res) => {
-    let result = new response(404, ["Not Found"]);
-    res.status(result.status).json(result); //Return 404 result
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../Frontend/build', 'index.html'));
 });
 
 module.exports = app; //Export server for use in index.js
