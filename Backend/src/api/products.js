@@ -5,6 +5,7 @@ const response = require('../models/response'); //Created pre-formatted uniform 
 module.exports = class productsController {
     static async apiGetProducts(req, res, next) {
         let result = new response();
+        result.auth =  (req.oidc.user == undefined)? null:req.oidc.user;
         // search if the project already exsisted (call findOne function)
         let products;
         if (req.query.store_id === undefined && req.query.id === undefined){ //No store_id specified

@@ -9,9 +9,10 @@ const path = require('path');
 module.exports = class productsController {
     static async apiPostPurchase(req, res, next) {
         let result = new response();
+        result.auth =  (req.oidc.user == undefined)? null:req.oidc.user;
         let purchase;
         if (true) {
-            purchase = JSON.parse({"status": "waiting"});
+            purchase = JSON.parse('{"status": "waiting"}');
             result.status = 200;
             result.success = true;
             result.response = purchase;

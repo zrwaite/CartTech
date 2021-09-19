@@ -1,11 +1,10 @@
 const Carts = require('../models/carts');
 const response = require('../models/response'); //Created pre-formatted uniform response
-
 /* register controller */
 module.exports = class cartsController {
     static async apiGetCarts(req, res, next) {
-        console.log(querytest !== querytest)
         let result = new response();
+        result.auth =  (req.oidc.user == undefined)? null:req.oidc.user;
         // search if the project already exsisted (call findOne function)
         let carts;
         var querytest = req.query.id+req.query.store_id+req.query.order_id+req.query.status
